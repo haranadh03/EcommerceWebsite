@@ -1,7 +1,6 @@
 package com.ecommerce.entity;
 
 import java.time.LocalDateTime;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -16,8 +15,7 @@ import jakarta.persistence.Table;
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	
+	private Long id;
 	private String firstName;
 	private String lastName;
 	@Column(unique= true, nullable = false)
@@ -29,35 +27,17 @@ public class User {
 	private Role role;
 	private boolean enabled;
 	private LocalDateTime createdAt;
-	private LocalDateTime updateAt;
+	private LocalDateTime updatedAt;
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
 				+ ", password=" + password + ", phone=" + phone + ", role=" + role + ", enabled=" + enabled
-				+ ", createdAt=" + createdAt + ", updateAt=" + updateAt + "]";
+				+ ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + "]";
 	}
-	public User(long id, String firstName, String lastName, String email, String password, String phone, Role role,
-			boolean enabled, LocalDateTime createdAt, LocalDateTime updateAt) {
-		super();
-		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.password = password;
-		this.phone = phone;
-		this.role = role;
-		this.enabled = enabled;
-		this.createdAt = createdAt;
-		this.updateAt = updateAt;
-	}
-	public User() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getFirstName() {
@@ -108,10 +88,28 @@ public class User {
 	public void setCreatedAt(LocalDateTime createdAt) {
 		this.createdAt = createdAt;
 	}
-	public LocalDateTime getUpdateAt() {
-		return updateAt;
+	public LocalDateTime getUpdatedAt() {
+		return updatedAt;
 	}
-	public void setUpdateAt(LocalDateTime updateAt) {
-		this.updateAt = updateAt;
+	public void setUpdatedAt(LocalDateTime updatedAt) {
+		this.updatedAt = updatedAt;
 	}
+	public User(Long id, String firstName, String lastName, String email, String password, String phone, Role role,
+			boolean enabled, LocalDateTime createdAt, LocalDateTime updatedAt) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.password = password;
+		this.phone = phone;
+		this.role = role;
+		this.enabled = enabled;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
+	}
+	public User() {
+		super();
+	}
+	
 }
